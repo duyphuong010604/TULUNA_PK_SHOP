@@ -36,47 +36,49 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body></body>
+<body>
 
 <?php
 
 include("./header.php");
 
+if(isset($_GET['atc'])){
+    switch ($_GET['atc']) {
+        case 'login':
+            include("login/index.php");
+            break;
 
+        case 'register':
+            include("../../view/client/dangky/index.php");
+            break;
 
-switch ($_GET['atc']) {
-    case 'login':
-        include("login/index.php");
-        break;
+        case 'sanpham':
+            include("sanpham/index.php");
+            break;
 
-    case 'register':
-        include("../../view/client/dangky/index.php");
-        break;
-
-    case 'sanpham':
-        include("sanpham/index.php");
-        break;
-
-    case 'chitiet-sp':
-        include("chitiet-sp/index.php");
-        break;
-
-    case 'home':
-        include("home/index.php");
-        break;
+        case 'chitiet-sp':
+            include("chitiet-sp/index.php");
+            break;
 
 
 
-    default:
-        include("client/home/index.php");
-        break;
+
+
+        default:
+            include("home/index.php");
+            break;
+    }
+
+}else{
+    include("home/index.php");
 }
+
 
 include("./footer.php");
 
 ?>
 
-
+</body>
 
 <script src="../../contents/client/js/vendor/jquery-2.2.4.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.../../contents/client/js/1.11.0/umd/popper.min.js"
